@@ -9,12 +9,13 @@ class Ball {
   }
 
   function Ball() {
+    this.gravity = 0.6;
     this.
   }
 
   drawBall(){   
     fill ('lightpink')
-    ellipse(this.x,this.y,this.width,this.height)
+    ellipse(this.x,this.y,this.width,this.height,this.gravity)
     this.y = this.y + this.vy;
 
 
