@@ -1,4 +1,4 @@
-var gravity = 0.1;
+var gravity = 0.01;
 class Ball {
   constructor(x, y, w, h, vy,) {
     this.y = y;
@@ -25,16 +25,16 @@ class Ball {
 var gravity, ball1;
 
 function keyPressed(spacebar){  
-  ball1.vy = ball1.vy - 10;
+  ball1.vy = ball1.vy - 5;
 }
  
 
 
 function setup() {
   createCanvas(500, 400);
-  gravity = 0.5;
+  gravity = 0.25;
 
-  ball1 = new Ball(250, 10, 20, 20, 0);
+  ball1 = new Ball(250, 200, 20, 20, 0);
 }
 
 function draw() {
