@@ -1,39 +1,44 @@
+var gravity = 0.1;
 class Ball {
-    constructor(x,y,w,h,g,vy){
+  constructor(x, y, w, h, vy,) {
     this.y = y;
     this.x = x;
     this.width = w;
     this.height = h;
-    this.gravity = g;
-    this.vy = vy;    
+    this.vy = vy;
   }
 
-  function Ball() {
-    this.gravity = 0.6;
-    this.
-  }
+  drawBall() {
+    fill('lightpink')   
+    
 
-  drawBall(){   
-    fill ('lightpink')
-    ellipse(this.x,this.y,this.width,this.height,this.gravity)
-    this.y = this.y + this.vy;
-
-
-    if(this.y <= 0 || this.y >= 400){
-      this.vy = -this.vy
+    this.vy += gravity;
+    
+    if (this.y < 400) { 
+      this.y = this.y + this.vy;
     }
-  
+   
+    ellipse(this.x, this.y, this.width, this.height);
   }
 }
 
-function setup() {
-  createCanvas(500, 400); 
+var gravity, ball1;
 
-  ball1 = new Ball(250,200,20,20,0,0);
+function keyPressed(spacebar){  
+  ball1.vy = ball1.vy - 10;
+}
+ 
+
+
+function setup() {
+  createCanvas(500, 400);
+  gravity = 0.5;
+
+  ball1 = new Ball(250, 10, 20, 20, 0);
 }
 
 function draw() {
-  background('black');  
-  
-  ball1.drawBall(); 
+  background('lightblue');
+
+  ball1.drawBall();
 }
