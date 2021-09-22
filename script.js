@@ -53,14 +53,16 @@ function setup() {
   gravity = 0.25;
 
   ball1 = new Ball(250, 200, 20, 20, 0);
-  rect1 = new Rect(640, 300, 30, 200, -5,"blue");
-  rect2 = new Rect(640, 0, 30, 200, -5,"blue");
+  rect1 = new Rect(800, 300, 30, 200, -3,"blue");
+  rect2 = new Rect(800, 0, 30, 200, -3,"blue");
 }
 
 function draw() {
+
   background('lightblue');
 
   ball1.drawBall();
   rect1.drawRect();
   rect2.drawRect();
 }
+
