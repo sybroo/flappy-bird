@@ -1,4 +1,8 @@
 var gravity = 0.01;
+//let img;
+//function preload() {
+  //img = loadImage('images/pacman.png');
+//}
 class Ball {
   constructor(x, y, w, h, vy,) {
     this.x = x;
@@ -10,15 +14,16 @@ class Ball {
   
   
   drawBall() {
-    fill('lightpink')   
-    
+    fill("yellow")
+
 
     this.vy += gravity;
     
-    if (this.y < 400) { 
+    if (this.y < 390) { 
       this.y = this.y + this.vy;
     }
-    ellipse(this.x, this.y, this.width, this.height);
+     ellipse(this.x, this.y, this.width, this.height);
+    //image(img, this.x, this.y, this.width, this.height);
   }
 }
 
@@ -47,22 +52,28 @@ function keyPressed(spacebar){
 }
  
 
-
+var pipes = [];
 function setup() {
   createCanvas(600, 400);
   gravity = 0.25;
-
   ball1 = new Ball(250, 200, 20, 20, 0);
-  rect1 = new Rect(800, 300, 30, 200, -3,"blue");
-  rect2 = new Rect(800, 0, 30, 200, -3,"blue");
+  
 }
 
 function draw() {
-
   background('lightblue');
-
   ball1.drawBall();
-  rect1.drawRect();
-  rect2.drawRect();
+  
+  if(frameCount % 100 == 0){
+  	console.log("voeg nieuwe pipe toe aan pipes");
+
+    recta = new Rect(800, 300, 30, 200, -3,"blue");
+    rectb = new Rect(800, 0, 30, 200, -3,"blue");  
+
+    pipes.push(recta);
+    pipes.push(rectb);
+  }
+
+  pipes.forEach(p => p.drawRect());  
 }
 
