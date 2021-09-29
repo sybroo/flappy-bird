@@ -66,12 +66,14 @@ function draw() {
   
   if(frameCount % 100 == 0){
   	console.log("voeg nieuwe pipe toe aan pipes");
-
-    recta = new Rect(800, 300, 30, 200, -3,"blue");
-    rectb = new Rect(800, 0, 30, 200, -3,"blue");  
+    let randomHeight = random(50)
+    recta = new Rect(800, 300, 30, randomHeight + 100, -3,"blue");
+    rectb = new Rect(800, 0, 30, randomHeight + 150, -3,"blue");  
+   
 
     pipes.push(recta);
     pipes.push(rectb);
+
   }
 
   pipes.forEach(p => p.drawRect());  
