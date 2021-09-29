@@ -65,9 +65,10 @@ function draw() {
   ball1.drawBall();
   
   if(frameCount % 80 == 0){
-    let randomHeight = random(100)
-    recta = new Rect(800, 300, 30, randomHeight + 100, -3,"blue");
-    rectb = new Rect(800, 0, 30, randomHeight + 150, -3,"blue");  
+    let randomHeight = random(height - 100);
+
+    recta = new Rect(800, 0, 40, randomHeight, -3,"lightgreen");
+    rectb = new Rect(800, randomHeight + 100, 40, 600, -3,"lightgreen");  
    
 
     pipes.push(recta);
@@ -77,4 +78,9 @@ function draw() {
 
   pipes.forEach(p => p.drawRect());  
 }
+function isColliding(){
+  colliding = false; 
 
+  
+
+}
