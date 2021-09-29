@@ -64,9 +64,8 @@ function draw() {
   background('lightblue');
   ball1.drawBall();
   
-  if(frameCount % 100 == 0){
-  	console.log("voeg nieuwe pipe toe aan pipes");
-    let randomHeight = random(50)
+  if(frameCount % 80 == 0){
+    let randomHeight = random(100)
     recta = new Rect(800, 300, 30, randomHeight + 100, -3,"blue");
     rectb = new Rect(800, 0, 30, randomHeight + 150, -3,"blue");  
    
