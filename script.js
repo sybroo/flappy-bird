@@ -14,7 +14,7 @@ class Ball {
   
   
   drawBall() {
-    fill("yellow")
+    fill("yellow");
 
 
     this.vy += gravity;
@@ -42,6 +42,12 @@ class Rect {
    rect(this.x, this.y, this.width, this.height);
    this.x = this.x +this.vx;
   } 
+
+  checkCollision(){
+    if(ball1.x > this.x){
+      this.color = "red";
+    }
+  }
 }
 
 
@@ -68,19 +74,20 @@ function draw() {
     let randomHeight = random(height - 100);
 
     recta = new Rect(800, 0, 40, randomHeight, -3,"lightgreen");
-    rectb = new Rect(800, randomHeight + 100, 40, 600, -3,"lightgreen");  
+    rectb = new Rect(800, randomHeight + 100, 40, 600, -3,"lightgreen");
    
 
     pipes.push(recta);
     pipes.push(rectb);
 
+    if(pipes.length > 8){
+      pipes.splice(0,2);
+    }
   }
 
-  pipes.forEach(p => p.drawRect());  
+  pipes.forEach((p) => {
+    p.drawRect();
+    p.checkCollision();
+  });  
 }
-function isColliding(){
-  colliding = false; 
 
-  
-
-}
