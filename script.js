@@ -3,10 +3,13 @@ var gravity, ball1;
 var pipes = [];
 var gameState = 1;
 var score = 0;
-//let img;
-//function preload() {
-//img = loadImage('images/pacman.png');
-//}
+
+let img;
+function preload() {
+  img = loadImage('images/pacman.png');
+  img2 = loadImage('images/achtegrond.jpeg')
+}
+
 class Ball {
   constructor(x, y, w, h, vy, ) {
     this.x = x;
@@ -18,7 +21,7 @@ class Ball {
 
 
   drawBall() {
-    fill(pacman);
+    fill("yellow");
 
 
     this.vy += gravity;
@@ -26,8 +29,8 @@ class Ball {
     if (this.y < 390) {
       this.y = this.y + this.vy;
     }
-    rect(this.x, this.y, this.width, this.height);
-    //image(img, this.x, this.y, this.width, this.height);
+    //rect(this.x, this.y, this.width, this.height);
+    image(img, this.x, this.y, this.width, this.height);
   }
 }
 
@@ -51,8 +54,7 @@ class Rect {
     //console.log(ball1.x,this.x, this.width)
     if (ball1.x + ball1.width > this.x && ball1.x < this.x + this.width)
       if (ball1.y + ball1.height > this.y && ball1.y < this.y + this.height) {
-        gameState = 2
-      ;
+        gameState = 2;   
       }
   }
 }
@@ -63,8 +65,6 @@ function setup() {
   createCanvas(600, 400);
   gravity = 0.25;
   ball1 = new Ball(250, 200, 20, 20, 0);
-
-  pacman = loadImage ("images/pacman.png")
 }
 
 function draw() {
@@ -111,7 +111,8 @@ function menu() {
 }
 
 function game() {
-  background('lightblue');
+  //background('lightblue');
+  image(img2,0, 0, width, height);
   ball1.drawBall();
   textSize(24);
   text("Score: " + score, 10, 30);
@@ -128,10 +129,13 @@ function game() {
     if (pipes.length > 8) {
       pipes.splice(0, 2);
 
-      if (recta.x > 250)
-        score++;
     }
   }
+
+  if (frameCount % 80 == 0 && pipes.length > 4) {
+    score ++;
+  }
+
 
   pipes.forEach((p) => {
     p.drawRect();
