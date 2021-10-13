@@ -103,7 +103,7 @@ function keyPressed() {
 
 function menu() {
   background('black')
-  text("Press enter to play again", 150, 200)
+  text("Press enter to play", 150, 200)
   text("Welcome!", 150, 100)
   text("gemaakt door Noa en Syb", 150, 325)
 }
@@ -139,7 +139,7 @@ function game() {
 
 function gameover() {
   background('black')
-  text("Press Esc to play again", 150, 200)
+  text("Press Esc to go to main menu", 150, 200)
   text("You lost", 150, 100)
   text("gemaakt door Noa en Syb", 150, 325)
 }
