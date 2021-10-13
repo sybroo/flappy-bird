@@ -1,9 +1,12 @@
 var gravity = 0.01;
+var gravity, ball1;
+var pipes = [];
+var gameState = 0;
 //let img;
 //function preload() {
 //img = loadImage('images/pacman.png');
 //}
-class Ball {
+ class Ball {
   constructor(x, y, w, h, vy, ) {
     this.x = x;
     this.y = y;
@@ -24,8 +27,8 @@ class Ball {
     }
     rect(this.x, this.y, this.width, this.height);
     //image(img, this.x, this.y, this.width, this.height);
-  }
-}
+    }
+  } 
 
 class Rect {
   constructor(x, y, w, h, vx, color) {
@@ -60,20 +63,15 @@ class Rect {
 }
 
 
-
-var gravity, ball1;
-
 function keyPressed(spacebar) {
   ball1.vy = ball1.vy - 5;
 }
 
 
-var pipes = [];
 function setup() {
   createCanvas(600, 400);
   gravity = 0.25;
   ball1 = new Ball(250, 200, 20, 20, 0);
-
 }
 
 function draw() {
@@ -99,5 +97,30 @@ function draw() {
     p.drawRect();
     p.checkCollision();
   });
+
+  if (gameState == 0){
+    menu();
+  }
+
+  if (gameState == 1){
+    game();
+  }
+
+  if (gameState == 2){
+    gameover();
+  }
 }
 
+
+function menu(){
+  background('black')
+  text("Press Spacebar", 250, 300)
+  text("gemaakt door Noa en Syb", 250, 325)
+}
+
+function keyPressed(){
+
+  if (keyCode == 13) {
+    gameState = 0;
+  }
+}
