@@ -18,7 +18,7 @@ class Ball {
 
 
   drawBall() {
-    fill("yellow");
+    fill(pacman);
 
 
     this.vy += gravity;
@@ -52,7 +52,7 @@ class Rect {
     if (ball1.x + ball1.width > this.x && ball1.x < this.x + this.width)
       if (ball1.y + ball1.height > this.y && ball1.y < this.y + this.height) {
         gameState = 2
-          ;
+      ;
       }
   }
 }
@@ -63,6 +63,8 @@ function setup() {
   createCanvas(600, 400);
   gravity = 0.25;
   ball1 = new Ball(250, 200, 20, 20, 0);
+
+  pacman = loadImage ("images/pacman.png")
 }
 
 function draw() {
@@ -126,7 +128,7 @@ function game() {
     if (pipes.length > 8) {
       pipes.splice(0, 2);
 
-      if (rectb.y < 250)
+      if (recta.x > 250)
         score++;
     }
   }
@@ -140,6 +142,6 @@ function game() {
 function gameover() {
   background('black')
   text("Press Esc to go to main menu", 150, 200)
-  text("You lost", 150, 100)
+  text("GAME OVER", 150, 100)
   text("gemaakt door Noa en Syb", 150, 325)
 }
