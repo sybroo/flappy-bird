@@ -6,7 +6,7 @@ var score = 0;
 
 let img;
 function preload() {
-  img = loadImage('images/pacman.png');
+  img = loadImage('images/ball.png');
   img2 = loadImage('images/achtegrond.jpeg')
 }
 
@@ -84,7 +84,7 @@ function draw() {
 }
 
 function keyPressed() {
-  console.log(keyCode);
+  (keyCode);
   if (keyCode == 32) {
     ball1.vy = ball1.vy - 5;
   }
